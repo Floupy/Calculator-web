@@ -33,21 +33,20 @@ deleteButton.addEventListener('click', deleteNumber);
 clearButton.addEventListener('click', clear);
 equalsButton.addEventListener('click', operate);
 function add() {
-    return  result = number1 + number2;
+    return  result = Number(number1) + Number(number2);
 }
 function subtract() {
-    return  result = number1 - number2;
+    return  result = Number(number1) - Number(number2);
 }
 function multiply() {
     return  result = number1 * number2;
 }
 function divide() {
-    return  result = number1 / number2;
+    return  result = Number(number1) / Number(number2);
 }
 
 function operate() {
     display.textContent = ' ';
-
     if(operation === '/') {
         divide();
     } else if(operation === '*') {
@@ -57,13 +56,13 @@ function operate() {
     } else if(operation === '-') {
         subtract();
     }
-
-
-    // number1.toString().slice(1);
-    // number2.toString().slice(1);
+    number1 = Number(result);
+    number2 = Number(' ');
+    isFirstNumberMode = false;
     console.log(Number(number1));
     console.log(Number(number2));
     console.log(result);
+    display.textContent = result.toString();
 }
 
 
@@ -86,7 +85,7 @@ function chooseOperation() {
         console.log(operation);
     }
 
-    isFirstNumberMode = !isFirstNumberMode;
+    isFirstNumberMode = false;
     display.textContent = ' ';
 
 }
